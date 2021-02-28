@@ -123,6 +123,12 @@ nfdresult_t NFD_OpenDialog( const nfdchar_t *filterList,
                             const nfdchar_t *defaultPath,
                             nfdchar_t **outPath )
 {
+    NSApplication* app = [NSApplication sharedApplication];
+    NSApplicationActivationPolicy initial_policy = [app activationPolicy];
+    if (initial_policy == NSApplicationActivationPolicyProhibited) {
+        [app setActivationPolicy:NSApplicationActivationPolicyAccessory];
+    }
+
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
     NSWindow *keyWindow = [[NSApplication sharedApplication] keyWindow];    
@@ -165,6 +171,12 @@ nfdresult_t NFD_OpenDialogMultiple( const nfdchar_t *filterList,
                                     const nfdchar_t *defaultPath,
                                     nfdpathset_t *outPaths )
 {
+    NSApplication* app = [NSApplication sharedApplication];
+    NSApplicationActivationPolicy initial_policy = [app activationPolicy];
+    if (initial_policy == NSApplicationActivationPolicyProhibited) {
+        [app setActivationPolicy:NSApplicationActivationPolicyAccessory];
+    }
+
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSWindow *keyWindow = [[NSApplication sharedApplication] keyWindow];
     
@@ -209,6 +221,12 @@ nfdresult_t NFD_SaveDialog( const nfdchar_t *filterList,
                             const nfdchar_t *defaultPath,
                             nfdchar_t **outPath )
 {
+    NSApplication* app = [NSApplication sharedApplication];
+    NSApplicationActivationPolicy initial_policy = [app activationPolicy];
+    if (initial_policy == NSApplicationActivationPolicyProhibited) {
+        [app setActivationPolicy:NSApplicationActivationPolicyAccessory];
+    }
+
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSWindow *keyWindow = [[NSApplication sharedApplication] keyWindow];
     
@@ -248,6 +266,12 @@ nfdresult_t NFD_SaveDialog( const nfdchar_t *filterList,
 nfdresult_t NFD_PickFolder(const nfdchar_t *defaultPath,
     nfdchar_t **outPath)
 {
+    NSApplication* app = [NSApplication sharedApplication];
+    NSApplicationActivationPolicy initial_policy = [app activationPolicy];
+    if (initial_policy == NSApplicationActivationPolicyProhibited) {
+        [app setActivationPolicy:NSApplicationActivationPolicyAccessory];
+    }
+
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
     NSWindow *keyWindow = [[NSApplication sharedApplication] keyWindow];
